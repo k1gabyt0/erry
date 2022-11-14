@@ -30,6 +30,8 @@ A Go package for handling multiple errors.
 
 ## Getting started
 
+See the [documentation](https://pkg.go.dev/github.com/k1gabyt0/erry) for further details.
+
 ### Installation
 
 ```bash
