@@ -104,7 +104,7 @@ func TestMError_New(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			err := erry.NewError(tt.args.msg, tt.args.errs...)
 			if err == nil {
-				t.Error("no ValidationError was created")
+				t.Error("no MError was created")
 				return
 			}
 
@@ -221,7 +221,7 @@ func TestMError_From(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			err := erry.ErrorFrom(tt.args.original, tt.args.errs...)
 			if err == nil {
-				t.Error("created ValidationError is nil")
+				t.Error("created MError is nil")
 				return
 			}
 
@@ -325,7 +325,7 @@ func (v simpleValidationError) Error() string {
 	return v.message
 }
 
-func TestValidationError_As(t *testing.T) {
+func TestMError_As(t *testing.T) {
 	errB := &simpleValidationError{message: "validation B failed"}
 	errC := &simpleValidationError{message: "validation C failed"}
 	errComplexBAndC := erry.NewError("errComplexBAndC", errB, errC)

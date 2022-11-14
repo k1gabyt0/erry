@@ -33,7 +33,7 @@ func NewError(msg string, errs ...error) *MError {
 // err's msg will be the same as original.Error().
 // Function call errors.Is(err, original) will return true.
 //
-// If passed original is already an Error, then original is returned.
+// If passed original is already an MError, then original is returned.
 func ErrorFrom(original error, errs ...error) *MError {
 	if original == nil {
 		return NewError("")
