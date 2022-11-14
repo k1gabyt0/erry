@@ -7,7 +7,8 @@ import (
 	"testing"
 )
 
-func ExampleNewError() {
+func Example() {
+	// Create new error
 	errA := errors.New("err A")
 	errB := errors.New("err B")
 
@@ -26,15 +27,12 @@ func ExampleNewError() {
 		fmt.Println("This is error B")
 		// Output: This is error B
 	}
-}
 
-func ExampleErrorFrom() {
-	errA := errors.New("err A")
-	errB := errors.New("err B")
+	// Transform existing error
 
 	// Transforms errA into multi-error with errB
 	// as one of inner errors.
-	multierr := erry.ErrorFrom(errA, errB)
+	multierr = erry.ErrorFrom(errA, errB)
 	fmt.Println(multierr)
 	// Output: err A:
 	//		     err B
