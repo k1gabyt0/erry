@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func Example_NewError() {
+func ExampleNewError() {
 	errA := errors.New("err A")
 	errB := errors.New("err B")
 
@@ -28,7 +28,7 @@ func Example_NewError() {
 	}
 }
 
-func Example_ErrorFrom() {
+func ExampleErrorFrom() {
 	errA := errors.New("err A")
 	errB := errors.New("err B")
 

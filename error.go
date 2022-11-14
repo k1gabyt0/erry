@@ -110,7 +110,7 @@ func (v *MError) As(target any) bool {
 	return false
 }
 
-// WithErrors stores passed errs in Error.
+// WithErrors stores passed errs in MError.
 //
 // Passed nil errs though will be filtered. Only non-nil errs are stored.
 func (v *MError) WithErrors(errs ...error) *MError {
@@ -124,7 +124,7 @@ func (v *MError) WithErrors(errs ...error) *MError {
 	return v
 }
 
-// Message returns root message of ValdiationError that will be displayed first.
+// Message returns root message of MError that will be displayed first.
 func (v *MError) Message() string {
 	return v.msg
 }
