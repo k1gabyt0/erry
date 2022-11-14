@@ -68,7 +68,7 @@ func (v *MError) Error() string {
 
 // Is reports whether any error in v's tree matches target.
 //
-// It is always returns true if checked against ErrValidation.
+// It is always returns true if checked against non-nil original.
 func (v *MError) Is(target error) bool {
 	if target == v.original {
 		return true
@@ -129,7 +129,7 @@ func (v *MError) Message() string {
 	return v.msg
 }
 
-// Original error that have been passed to become ValidationError.
+// Original error that have been passed to become mutli-error.
 func (v *MError) Original() error {
 	return v.original
 }
