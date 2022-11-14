@@ -5,6 +5,8 @@
 ## Description
 
 A Go package for handling multiple errors.
+
+
 ⚡️ The project is in rapid stage of development, issues and critics are welcome.
 
 ## Features
