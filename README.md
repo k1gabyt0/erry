@@ -71,7 +71,7 @@ if errors.Is(multierr, errA) {
     fmt.Println("This is error A")
 }
 if errors.Is(multierr, errB) {
- fmt.Println("This is error B")
+    fmt.Println("This is error B")
 }
 ```
 
