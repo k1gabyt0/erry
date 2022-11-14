@@ -1,6 +1,7 @@
 # erry
 
 [![golangci-lint](https://github.com/k1gabyt0/erry/actions/workflows/golangci-lint.yaml/badge.svg)](https://github.com/k1gabyt0/erry/actions/workflows/golangci-lint.yaml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/k1gabyt0/erry.svg)](https://pkg.go.dev/github.com/k1gabyt0/erry)
 
 ## Description
 
