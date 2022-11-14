@@ -1,5 +1,7 @@
 # erry
 
+[![golangci-lint](https://github.com/k1gabyt0/erry/actions/workflows/golangci-lint.yaml/badge.svg)](https://github.com/k1gabyt0/erry/actions/workflows/golangci-lint.yaml)
+
 ## Description
 
 A Go package for handling multiple errors.
@@ -29,7 +31,7 @@ A Go package for handling multiple errors.
 ### Installation
 
 ```bash
-go get https://github.com/k1gabyt0/erry
+go get github.com/k1gabyt0/erry
 ```
 
 ### Usage
