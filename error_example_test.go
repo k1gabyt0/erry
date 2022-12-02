@@ -37,7 +37,7 @@ func ExampleErrorFrom() {
 
 	// Transforms errA into multi-error with errB
 	// as one of inner errors.
-	multierr := erry.ErrorFrom(errA, errB)
+	multierr := erry.ErrorFrom(errA).WithErrors(errB)
 	fmt.Println(multierr)
 
 	if errors.Is(multierr, errA) {

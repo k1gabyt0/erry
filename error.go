@@ -34,7 +34,7 @@ func NewError(msg string, errs ...error) *MError {
 // Function call errors.Is(err, original) will return true.
 //
 // If passed original is already an MError, then original is returned.
-func ErrorFrom(original error, errs ...error) *MError {
+func ErrorFrom(original error) *MError {
 	if original == nil {
 		return NewError("")
 	}
@@ -43,11 +43,10 @@ func ErrorFrom(original error, errs ...error) *MError {
 		return tgt
 	}
 
-	e := &MError{
+	return &MError{
 		original: original,
 		msg:      original.Error(),
 	}
-	return e.WithErrors(errs...)
 }
 
 // Error formats error messages with new lines starting with v.msg.
@@ -70,7 +69,7 @@ func (v *MError) Error() string {
 //
 // It is always returns true if checked against non-nil original.
 func (v *MError) Is(target error) bool {
-	if target == v.original {
+	if errors.Is(v.original, target) {
 		return true
 	}
 

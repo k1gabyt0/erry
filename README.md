@@ -48,6 +48,9 @@ errA := errors.New("err A")
 errB := errors.New("err B")
 
 multierr := erry.NewError("multierror", errA, errB)
+//          multierror
+//          /       \
+//        errA      errB
 fmt.Println(multierr)
 ```
 
@@ -66,10 +69,14 @@ This is error B
 ```go
 errA := errors.New("err A")
 errB := errors.New("err B")
+errB := errors.New("err C")
 
 // Transforms errA into multi-error with errB
 // as one of inner errors.
-multierr := erry.ErrorFrom(errA, errB)
+multierr := erry.ErrorFrom(errA).WithErrors(errB, errC)
+//          errA
+//          /  \
+//       errB  errC
 fmt.Println(multierr)
 
 if errors.Is(multierr, errA) {
@@ -78,6 +85,9 @@ if errors.Is(multierr, errA) {
 if errors.Is(multierr, errB) {
     fmt.Println("This is error B")
 }
+if errors.Is(multierr, errc) {
+    fmt.Println("This is error C")
+}
 ```
 
 **Output**:
@@ -85,8 +95,10 @@ if errors.Is(multierr, errB) {
 ```text
 err A:
     err B
+    err C
 This is error A
 This is error B
+This is error C
 ```
 
 ## Alternatives

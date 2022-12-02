@@ -219,7 +219,10 @@ func TestMError_From(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			err := erry.ErrorFrom(tt.args.original, tt.args.errs...)
+			err := erry.ErrorFrom(tt.args.original)
+			if tt.args.errs != nil {
+				err = err.WithErrors(tt.args.errs...)
+			}
 			if err == nil {
 				t.Error("created MError is nil")
 				return
@@ -385,7 +388,7 @@ func TestMError_As(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			var err error
 			if tt.args.original != nil {
-				err = erry.ErrorFrom(tt.args.original, tt.args.innerErrs...)
+				err = erry.ErrorFrom(tt.args.original).WithErrors(tt.args.innerErrs...)
 			} else {
 				err = erry.NewError("validation error", tt.args.innerErrs...)
 			}
