@@ -69,7 +69,7 @@ This is error B
 ```go
 errA := errors.New("err A")
 errB := errors.New("err B")
-errB := errors.New("err C")
+errC := errors.New("err C")
 
 // Transforms errA into multi-error with errB
 // as one of inner errors.
@@ -85,7 +85,7 @@ if errors.Is(multierr, errA) {
 if errors.Is(multierr, errB) {
     fmt.Println("This is error B")
 }
-if errors.Is(multierr, errc) {
+if errors.Is(multierr, errC) {
     fmt.Println("This is error C")
 }
 ```
